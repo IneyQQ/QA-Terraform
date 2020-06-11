@@ -11,5 +11,5 @@ fi
 envsubst < main.tf.tmpl > main.tf
 envsubst < backend.tf.tmpl > backend.tf
 
-rm -rf .terraform/terraform.tfstate
+rm -f .terraform/terraform.tfstate
 terraform init
