@@ -14,3 +14,22 @@ module vpc {
     "coherent:client"  = "Coherent"
   }
 }
+
+data aws_vpc main {
+  id = module.vpc.id
+}
+
+data aws_subnet private {
+  for_each = toset(module.vpc.private_subnet_ids)
+  id       = each.key
+}
+
+data aws_subnet public {
+  for_each = toset(module.vpc.private_subnet_ids)
+  id       = each.key
+}
+
+data aws_subnet nointernet {
+  for_each = toset(module.vpc.private_subnet_ids)
+  id       = each.key
+}
