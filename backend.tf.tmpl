@@ -1,0 +1,9 @@
+terraform {
+  backend "s3" {
+    bucket   = "shavlyuk-terraform-state"
+    key      = "terraform/${state_file_name}.tfstate"
+    role_arn = "arn:aws:iam::242906888793:role/AWS_Sandbox"
+    region   = "us-east-1"
+    dynamodb_table = "shavlyuk-terraform-state-lock-dynamo"
+  }
+}
